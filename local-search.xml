@@ -4,6 +4,32 @@
   
   
   <entry>
+    <title>C/C++小知识点</title>
+    <link href="/2021/03/24/C-C-%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <url>/2021/03/24/C-C-%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    
+    <content type="html"><![CDATA[<h1 id="C-C-小知识点"><a href="#C-C-小知识点" class="headerlink" title="C/C++小知识点"></a>C/C++小知识点</h1><h2 id="与、或的短路"><a href="#与、或的短路" class="headerlink" title="与、或的短路"></a>与、或的短路</h2><p>“或”逻辑前面为1，“与”逻辑前面为0就会发生短路，即不执行后面的了。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> a=<span class="hljs-number">5</span>,b=<span class="hljs-number">6</span>,c=<span class="hljs-number">7</span>,d=<span class="hljs-number">8</span>,m=<span class="hljs-number">2</span>,n=<span class="hljs-number">2</span>;<br>    (m=a&lt;b)||(n=c&gt;d);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\t%d&quot;</span>,m,n);<br>&#125;<br></code></pre></td></tr></table></figure><p>输出的结果为1,2.为什么呢，因为<code>a&lt;b，m=1</code>,这个“或”逻辑就被“短路”掉了，后面的语句就没被执行，所以n还是等于原先的2 </p><p>“||”只要前一个为１，结果就为１。因此短路,并且不计算（<code>n=c&gt;d</code>);</p><p>“&amp;&amp;”只要前面是0，结果就为0，就不执行后面的。</p><p><img src="/.com//%E7%86%8A%E7%8C%AB%E5%A4%B4.jpg" alt="测试图片"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>article title</title>
+    <link href="/2021/03/24/article-title/"/>
+    <url>/2021/03/24/article-title/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2021/03/23/hello-world/"/>
     <url>/2021/03/23/hello-world/</url>
