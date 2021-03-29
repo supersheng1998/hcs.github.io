@@ -18,9 +18,25 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>何氏薄荷糖的博客</title>
+  <title>博客搭建教程 - 何氏薄荷糖的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -48,7 +64,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -142,22 +158,55 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/%E9%AC%BC%E7%81%AD1.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="欢迎来到我的博客网站！">
+            <span class="h2" id="subtitle" title="博客搭建教程">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-29 15:11" pubdate>
+        2021年3月29日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      322 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -166,156 +215,103 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/29/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">博客搭建教程</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/29/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">
-          
-          
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">博客搭建教程</h1>
             
-          
-          博客搭建教程参考：https://www.zhihu.com/question/21193762/answer/489124966
-原电脑
-先在github上新建一个hexo分支
-在这个仓库的settings中，选择默认分支为hexo分支
-在除了原博客目录下的其他目录下，打开git bash
-git clone 你的博客仓库地址如git clone &#x67;&#x69;&#116;&#64;&
-        </a>
-      </p>
+            <div class="markdown-body">
+              <h1 id="博客搭建教程"><a href="#博客搭建教程" class="headerlink" title="博客搭建教程"></a>博客搭建教程</h1><p>参考：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21193762/answer/489124966">https://www.zhihu.com/question/21193762/answer/489124966</a></p>
+<h2 id="原电脑"><a href="#原电脑" class="headerlink" title="原电脑"></a>原电脑</h2><ol>
+<li>先在github上新建一个hexo分支</li>
+<li>在这个仓库的settings中，选择默认分支为hexo分支</li>
+<li>在除了原博客目录下的其他目录下，打开git bash</li>
+<li>git clone 你的博客仓库地址<br>如git clone <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#x6d;</a>:supersheng1998/supersheng1998.github.io.git</li>
+<li>在克隆到本地的XXX.github.io中，把除了.git 文件夹外的所有文件都删掉</li>
+<li>把之前我们写的博客源文件全部复制过来，除了.deploy_git。<br>如果克隆过theme中的主题文件，则输出调theme中的.git文件夹。<br>注意得复制过来.gitignore。</li>
+<li>在当前bash里（此时是hexo分支），依次输入git add.; git commit -m “备注文本”;git push origin hexo;</li>
+<li>完成，去GitHub的hexo分支看，是不是除node_modules、public、db.json都上传了。  </li>
+</ol>
+<h2 id="新电脑"><a href="#新电脑" class="headerlink" title="新电脑"></a>新电脑</h2><ol>
+<li>安装git和node.js,绑定GitHub账号和游戏，设置SSH</li>
+<li>新建文件夹，clone你的hexo分支。<br>git clone …</li>
+<li>依次输入npm i hexo-cli -g；npm install；npm install hexo-deployer-git –save；</li>
+<li>然后就是可以写博客了</li>
+</ol>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><ol>
+<li>写之前git pull origin hexo</li>
+<li>每次写完先把源文件上传<br>git add.; git commit -m “备注文本”;git push origin hexo;</li>
+<li>执行hexo g; hexo d;</li>
+</ol>
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-29 15:11" pubdate>
-              2021-03-29
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%85%B6%E4%BB%96/">其他</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/24/hello%20world/">hello</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/24/hello%20world/">
-          
-          
-            
-          
-          hello world继续测试
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 15:18" pubdate>
-              2021-03-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/24/C++%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/">C/C++小知识点</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/24/C++%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/">
-          
-          
-            
-          
-          C/C++小知识点与、或的短路“或”逻辑前面为1，“与”逻辑前面为0就会发生短路，即不执行后面的了。
-123456int main()&#123;    int a=5,b=6,c=7,d=8,m=2,n=2;    (m=a&lt;b)||(n=c&gt;d);    printf(&quot;%d\t%d&quot;,m,n);&#125;
-输出的结果为1,2.为什么呢，因为a&lt;b，m=
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 15:18" pubdate>
-              2021-03-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C-C/">C/C++</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C-C/">C/C++</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%85%B6%E4%BB%96/">其他</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/24/hello%20world/">
+                        <span class="hidden-mobile">hello</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -420,9 +416,15 @@ git clone 你的博客仓库地址如git clone &#x67;&#x69;&#116;&#64;&
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 

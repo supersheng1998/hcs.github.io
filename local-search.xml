@@ -4,7 +4,26 @@
   
   
   <entry>
-    <title>C/C++小知识点</title>
+    <title>博客搭建教程</title>
+    <link href="/2021/03/29/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    <url>/2021/03/29/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="博客搭建教程"><a href="#博客搭建教程" class="headerlink" title="博客搭建教程"></a>博客搭建教程</h1><p>参考：<a href="https://www.zhihu.com/question/21193762/answer/489124966">https://www.zhihu.com/question/21193762/answer/489124966</a></p><h2 id="原电脑"><a href="#原电脑" class="headerlink" title="原电脑"></a>原电脑</h2><ol><li>先在github上新建一个hexo分支</li><li>在这个仓库的settings中，选择默认分支为hexo分支</li><li>在除了原博客目录下的其他目录下，打开git bash</li><li>git clone 你的博客仓库地址<br>如git clone <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#x6d;</a>:supersheng1998/supersheng1998.github.io.git</li><li>在克隆到本地的XXX.github.io中，把除了.git 文件夹外的所有文件都删掉</li><li>把之前我们写的博客源文件全部复制过来，除了.deploy_git。<br>如果克隆过theme中的主题文件，则输出调theme中的.git文件夹。<br>注意得复制过来.gitignore。</li><li>在当前bash里（此时是hexo分支），依次输入git add.; git commit -m “备注文本”;git push origin hexo;</li><li>完成，去GitHub的hexo分支看，是不是除node_modules、public、db.json都上传了。  </li></ol><h2 id="新电脑"><a href="#新电脑" class="headerlink" title="新电脑"></a>新电脑</h2><ol><li>安装git和node.js,绑定GitHub账号和游戏，设置SSH</li><li>新建文件夹，clone你的hexo分支。<br>git clone …</li><li>依次输入npm i hexo-cli -g；npm install；npm install hexo-deployer-git –save；</li><li>然后就是可以写博客了</li></ol><h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><ol><li>写之前git pull origin hexo</li><li>每次写完先把源文件上传<br>git add.; git commit -m “备注文本”;git push origin hexo;</li><li>执行hexo g; hexo d;</li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>其他</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>hello</title>
     <link href="/2021/03/24/hello%20world/"/>
     <url>/2021/03/24/hello%20world/</url>
     
