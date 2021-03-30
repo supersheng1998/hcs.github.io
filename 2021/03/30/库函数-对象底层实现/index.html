@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>库函数/对象实现 - 何氏薄荷糖的博客</title>
+  <title>库函数/对象底层实现 - 何氏薄荷糖的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="库函数/对象实现">
+            <span class="h2" id="subtitle" title="库函数/对象底层实现">
               
             </span>
 
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      142 字
+      278 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      4
        分钟
     </span>
   
@@ -225,11 +225,17 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">库函数/对象实现</h1>
+            <h1 style="display: none">库函数/对象底层实现</h1>
             
             <div class="markdown-body">
-              <h1 id="C库函数"><a href="#C库函数" class="headerlink" title="C库函数"></a>C库函数</h1><h2 id="memcpy"><a href="#memcpy" class="headerlink" title="memcpy"></a>memcpy</h2><p>注意地址重叠情况</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span>* <span class="hljs-title">memcpy2</span><span class="hljs-params">(<span class="hljs-keyword">void</span>* src, <span class="hljs-keyword">void</span>* dst, <span class="hljs-keyword">int</span> size)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (dst == <span class="hljs-literal">NULL</span> || src == <span class="hljs-literal">NULL</span>)<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>	<span class="hljs-keyword">char</span>* t_src = <span class="hljs-literal">nullptr</span>;<br>	<span class="hljs-keyword">char</span>* t_dst = <span class="hljs-literal">nullptr</span>;<br>	<span class="hljs-keyword">if</span> ((src &lt; dst) &amp;&amp; ((<span class="hljs-keyword">char</span>*)dst - (<span class="hljs-keyword">char</span>*)src &lt; size))<span class="hljs-comment">//注意转换成char *型</span><br>	&#123;<br>		t_src = (<span class="hljs-keyword">char</span>*)src + size - <span class="hljs-number">1</span>;<span class="hljs-comment">//减一，因为size=1时，表示复制自身，不是下一个</span><br>		t_dst = (<span class="hljs-keyword">char</span>*)dst + size - <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">while</span> (size--)<br>		&#123;<br>			*t_dst-- = *t_src--;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		t_src = (<span class="hljs-keyword">char</span>*)src;<br>		t_dst = (<span class="hljs-keyword">char</span>*)dst;<br>		<span class="hljs-keyword">while</span> (size--)<br>		&#123;<br>			*t_dst++ = *t_src++;<br>		&#125;<br>	&#125;<br><br>	<span class="hljs-keyword">return</span> dst;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">char</span> a[] = <span class="hljs-string">&quot;abcdefg&quot;</span>;<br>	<span class="hljs-built_in">memcpy2</span>(a, a+<span class="hljs-number">3</span>, <span class="hljs-number">4</span>);<br>	cout &lt;&lt; a &lt;&lt; endl;<br><br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+              <h1 id="C库函数"><a href="#C库函数" class="headerlink" title="C库函数"></a>C库函数</h1><h2 id="1-memcpy"><a href="#1-memcpy" class="headerlink" title="1. memcpy"></a>1. memcpy</h2><p>注意地址重叠情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs C++&#123;.line-numbers&#125;">#include&lt;iostream&gt;<br>using namespace std;<br><br>void* memcpy2(void* src, void* dst, int size)<br>&#123;<br>	if (dst &#x3D;&#x3D; NULL || src &#x3D;&#x3D; NULL)<br>		return NULL;<br>	char* t_src &#x3D; nullptr;<br>	char* t_dst &#x3D; nullptr;<br>	if ((src &lt; dst) &amp;&amp; ((char*)dst - (char*)src &lt; size))&#x2F;&#x2F;注意转换成char *型<br>	&#123;<br>		t_src &#x3D; (char*)src + size - 1;&#x2F;&#x2F;减一，因为size&#x3D;1时，表示复制自身，不是下一个<br>		t_dst &#x3D; (char*)dst + size - 1;<br>		while (size--)<br>		&#123;<br>			*t_dst-- &#x3D; *t_src--;<br>		&#125;<br>	&#125;<br>	else<br>	&#123;<br>		t_src &#x3D; (char*)src;<br>		t_dst &#x3D; (char*)dst;<br>		while (size--)<br>		&#123;<br>			*t_dst++ &#x3D; *t_src++;<br>		&#125;<br>	&#125;<br><br>	return dst;<br>&#125;<br><br>int main()<br>&#123;<br>	char a[] &#x3D; &quot;abcdefg&quot;;<br>	memcpy2(a, a+3, 4);<br>	cout &lt;&lt; a &lt;&lt; endl;<br><br>	system(&quot;pause&quot;);<br>	return 0;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="2-strcpy"><a href="#2-strcpy" class="headerlink" title="2. strcpy"></a>2. strcpy</h2><p>需要注意的是如果目标dst不够大，而源字符串的长度又太长，可能会造成缓冲溢出的情况。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs C++&#123;.line-numbers&#125;">#include&lt;iostream&gt;<br>#include&lt;string&gt;<br><br>using namespace std;<br><br>char* strcpy2(char* src,char* dst)<br>&#123;<br>if (dst &#x3D;&#x3D; NULL || src &#x3D;&#x3D; NULL)<br>		return NULL;<br>	char* psrc &#x3D; src;<br>	char* pdst &#x3D; dst;<br>	while ((*pdst ++ &#x3D; *trsc++) !&#x3D; &#39;\0&#39;);<br>	return dst;<br>&#125;<br><br>int main()<br>&#123;<br>	char src[] &#x3D; &quot;abc&quot;;<br>	char dst[] &#x3D; &quot;efg&quot;;<br>	strcpy2(src, dst);<br>	printf(&quot;%s&quot;, dst);<br><br>	system(&quot;pause&quot;);<br>	return 1;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
             </div>
             <hr>
             <div>
