@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>C/C++小知识点 - 何氏薄荷糖的博客</title>
+  <title>库函数/对象实现 - 何氏薄荷糖的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="C/C++小知识点">
+            <span class="h2" id="subtitle" title="库函数/对象实现">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-24 15:18" pubdate>
-        2021年3月24日 下午
+      <time datetime="2021-03-30 13:44" pubdate>
+        2021年3月30日 下午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      180 字
+      142 字
     </span>
   
 
@@ -225,17 +225,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">C/C++小知识点</h1>
+            <h1 style="display: none">库函数/对象实现</h1>
             
             <div class="markdown-body">
-              <h1 id="C-C-小知识点"><a href="#C-C-小知识点" class="headerlink" title="C/C++小知识点"></a>C/C++小知识点</h1><h2 id="与、或的短路"><a href="#与、或的短路" class="headerlink" title="与、或的短路"></a>与、或的短路</h2><p>“或”逻辑前面为1，“与”逻辑前面为0就会发生短路，即不执行后面的了。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> a=<span class="hljs-number">5</span>,b=<span class="hljs-number">6</span>,c=<span class="hljs-number">7</span>,d=<span class="hljs-number">8</span>,m=<span class="hljs-number">2</span>,n=<span class="hljs-number">2</span>;<br>    (m=a&lt;b)||(n=c&gt;d);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\t%d&quot;</span>,m,n);<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>输出的结果为1,2.为什么呢，因为<code>a&lt;b，m=1</code>,这个“或”逻辑就被“短路”掉了，后面的语句就没被执行，所以n还是等于原先的2 </p>
-<p>“||”只要前一个为１，结果就为１。因此短路,并且不计算（<code>n=c&gt;d</code>);</p>
-<p>“&amp;&amp;”只要前面是0，结果就为0，就不执行后面的。</p>
-<p><img src="/2021/03/24/C++%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/%E7%86%8A%E7%8C%AB%E5%A4%B4.jpg" srcset="/img/loading.gif" lazyload alt="测试图片"></p>
-<h2 id="bool"><a href="#bool" class="headerlink" title="bool"></a>bool</h2><p>bool值不能用~取反，得异或true才能取反。</p>
-
+              <h1 id="C库函数"><a href="#C库函数" class="headerlink" title="C库函数"></a>C库函数</h1><h2 id="memcpy"><a href="#memcpy" class="headerlink" title="memcpy"></a>memcpy</h2><p>注意地址重叠情况</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span>* <span class="hljs-title">memcpy2</span><span class="hljs-params">(<span class="hljs-keyword">void</span>* src, <span class="hljs-keyword">void</span>* dst, <span class="hljs-keyword">int</span> size)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (dst == <span class="hljs-literal">NULL</span> || src == <span class="hljs-literal">NULL</span>)<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>	<span class="hljs-keyword">char</span>* t_src = <span class="hljs-literal">nullptr</span>;<br>	<span class="hljs-keyword">char</span>* t_dst = <span class="hljs-literal">nullptr</span>;<br>	<span class="hljs-keyword">if</span> ((src &lt; dst) &amp;&amp; ((<span class="hljs-keyword">char</span>*)dst - (<span class="hljs-keyword">char</span>*)src &lt; size))<span class="hljs-comment">//注意转换成char *型</span><br>	&#123;<br>		t_src = (<span class="hljs-keyword">char</span>*)src + size - <span class="hljs-number">1</span>;<span class="hljs-comment">//减一，因为size=1时，表示复制自身，不是下一个</span><br>		t_dst = (<span class="hljs-keyword">char</span>*)dst + size - <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">while</span> (size--)<br>		&#123;<br>			*t_dst-- = *t_src--;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		t_src = (<span class="hljs-keyword">char</span>*)src;<br>		t_dst = (<span class="hljs-keyword">char</span>*)dst;<br>		<span class="hljs-keyword">while</span> (size--)<br>		&#123;<br>			*t_dst++ = *t_src++;<br>		&#125;<br>	&#125;<br><br>	<span class="hljs-keyword">return</span> dst;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">char</span> a[] = <span class="hljs-string">&quot;abcdefg&quot;</span>;<br>	<span class="hljs-built_in">memcpy2</span>(a, a+<span class="hljs-number">3</span>, <span class="hljs-number">4</span>);<br>	cout &lt;&lt; a &lt;&lt; endl;<br><br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -269,15 +263,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/24/hello%20world/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hello</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/03/29/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">
+                        <span class="hidden-mobile">博客搭建教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
