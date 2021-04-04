@@ -1,5 +1,5 @@
 ---
-title: SSL
+title: SSL证书验证
 date: 2021-04-04 22:42:27
 tags: 计算机网络
 categories: 计算机网络
