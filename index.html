@@ -182,6 +182,168 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/04/06/%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/">红黑树的前世今生</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/06/%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/">
+          
+          
+            
+          
+          参考：《大话数据结构》和https://zhuanlan.zhihu.com/p/94575830
+红黑树的前世2-3-4树定义2-3-4树是对平衡二叉树的扩展先列出相关定义：  
+
+在一个节点中，可以有1-3个key，左边比右边的值小。
+2-节点，拥有1个key和2个子节点
+3-节点，拥有2个key和3个子节点。
+4-节点，拥有3个key和4个子节点。
+任意从根节点到叶子节点的路径拥有相同的长度
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-06 23:33" pubdate>
+              2021-04-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/04/SSL%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81/">SSL证书验证</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/04/SSL%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81/">
+          
+          
+            
+          
+          参考：《计算机网络-自顶向下方法》和https://www.zhihu.com/question/39136361/answer/80982546
+SSL证书验证前置知识
+数字签名A需要给B发一个文件。首先，把文件用一个散列函数进行处理，不管源文件有多大，处理结束后都会生成一个128位的二进制，称为“摘要”。再用A的私钥把摘要进行加密，这个加密后的摘要，就叫A的数字签名。  
+证书因为只有A持有私
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-04 22:42" pubdate>
+              2021-04-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/03/%E5%9B%9B%E4%B8%AA%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E5%AE%9E%E7%8E%B0/">四个智能指针实现</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/03/%E5%9B%9B%E4%B8%AA%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E5%AE%9E%E7%8E%B0/">
+          
+          
+            
+          
+          shared_ptr和weak_ptrshared_ptr的一些要点
+一般是实现有参构造、拷贝构造、赋值构造、析构、重载*、-&gt;  
+引用计数要在堆区创建（防止其中一个实例析构就没了）
+
+weak_ptr的一些要点
+无参、拷贝，赋值，析构，lock，expired  
+在shared_ptr里实现cons_from_weak
+
+代码123456789101112131415161718192
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-03 17:47" pubdate>
+              2021-04-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/C-C/">C/C++</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C-C/">C/C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/04/02/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0Arp%E5%8F%91%E9%80%81%E5%92%8C%E7%9B%91%E5%90%AC/">手动实现Arp发送和监听</a>
       </h1>
 
@@ -231,11 +393,11 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/30/%E5%BA%93%E5%87%BD%E6%95%B0-%E5%AF%B9%E8%B1%A1%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/">库函数/对象底层实现</a>
+        <a href="/2021/03/30/%E5%BA%93%E5%87%BD%E6%95%B0%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/">库函数底层实现</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/30/%E5%BA%93%E5%87%BD%E6%95%B0-%E5%AF%B9%E8%B1%A1%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/">
+        <a href="/2021/03/30/%E5%BA%93%E5%87%BD%E6%95%B0%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/">
           
           
             
@@ -294,7 +456,7 @@
 先在github上新建一个hexo分支
 在这个仓库的settings中，选择默认分支为hexo分支
 在除了原博客目录下的其他目录下，打开git bash
-git clone 你的博客仓库地址如git clone &#x67;&#x69;&#116;&#x40;
+git clone 你的博客仓库地址如git clone &#103;&#x69;&#x74;&#64;&
         </a>
       </p>
 
